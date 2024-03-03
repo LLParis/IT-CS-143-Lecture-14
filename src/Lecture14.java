@@ -1,3 +1,8 @@
+// London Paris
+// IT-CS-143-Lecture-14
+
+import java.util.*;
+
 class Lecture14 {
     public static void main(String[] args) {
         System.out.println("Hello from lecture 14");
@@ -12,28 +17,43 @@ class Lecture14 {
         // the add operations into one instead if calling add repeatedly which would be O(n).
 
         // 15. What is the benefit of adding an iterator to the list class?
+        // an iterator allows you to traverse through the collection. It allows you to do so
+        // without needing to know the internal structure and works with any collection.
 
         // 16. What state does the array list iterator store?
+        // Current position, reference to the collection it is iterating over,
 
         // 17. How does the array list iterator know if there are more elements left to
         // examine?
         // What does it do if the client tries to examine a next element but there are
         // none left to examine?
+        // An array list iterator knows if there are more elements left to examine by using
+        // the .hasNext() method in a while-loop that checks for the next element.
+        // if there are no more elements left to examine, the loop will throw a
+        // NoSuchElementException
 
         // 18. What is a precondition of the iterator’s remove method?
         // How does the iterator enforce this precondition, and what does it do if the
         // precondition is violated?
+        // The precondition is, remove() can only be called once per next() and cannot be
+        // called before a next() is called. This is to ensure there is an element there.
+        // It enforces this precondition by keeping track of the iterator. If it is violated, it throws an
+        // IllegalStateException
 
         // 19. Write a method called sum that returns the sum of all values in the list.
         // For example, if a variable called list stores [11, –7, 3, 42, 0, 14], the
         // call of list.sum() should return 63. If the list is empty, sum should return
         // 0.
+        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(11, -7, 3, 42, 0, 14));
+        ArrayIntList list2 = new ArrayIntList(list);
+        System.out.println("Sum: " + list2.sum());
 
         // 20. Write a method called average that returns the average of the values in
         // the list as a real number.
         // For example, if a variable called list stores [11, –7, 3, 42, 0, 14], the
         // call of list.average() should return 10.5. If the list is empty, average
         // should return 0.0.
+        System.out.println("Average: " + list2.average());
 
         // Section 15.4: ArrayList<E>
         // 21. What problem do we encounter when we try to construct an array of type E?
@@ -57,6 +77,10 @@ class Lecture14 {
 
         // Exercises:
         // None
+
+    }
+
+    public static void average() {
 
     }
 }
