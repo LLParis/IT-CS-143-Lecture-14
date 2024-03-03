@@ -58,29 +58,40 @@ class Lecture14 {
         // Section 15.4: ArrayList<E>
         // 21. What problem do we encounter when we try to construct an array of type E?
         // How do we resolve this problem?
+        // If I try to construct an array of type E, type erasure means that generic info is erased
+        // at runtime and replaced with its bound or object. Since java needs to know arraus types at
+        // runtime, we can use a @SuppressWarnings("unchecked") to suppress warnings from java.
 
         // 22. Since our list stores an unfilled array, the empty elements were filled
         // with the value 0 when our array was full of integers.
         // What value occupies the empty cells when our list stores values of type E?
+        // The value of null occupies the empty cells when our list stores values of type E.
 
         // 23. What changes need to be made to the indexOf method to search for objects
         // of type E in the new list class, and why are these changes necessary?
+        // Since E can be any object type, you must use the .equals() method to check for equality not ==
+        // If E can be null, the indexOf method must include a null check
 
         // 24. What is an annotation? How are annotations useful in writing our
         // ArrayList<E> class?
+        // Annotation is akin to comments, metadata, or subtitles that provide information about a program
+        // without affecting the program itself.
+        // They can provide documentation
 
         // 25. Why is it important to set empty elements to null when we are clearing or
         // removing from the list of type E, when we didn’t need to clear out these
         // elements in the previous ArrayIntList?
+        // ArrayIntList deals with primitive data types where null is not applicable.
+        // When you remove an element from a list, if the array does not nullify the removed element's
+        // slot, the array still holds a reference to the removed object which is bad for performance.
 
         // 26. What is one benefit of making the list iterator into an inner class?
+        // It allows you to eliminate the field that keeps track of the list. The instances of the inner class
+        // have access to the methods and fields of the instance of the outer class.
 
         // Exercises:
         // None
 
     }
 
-    public static void average() {
-
-    }
 }
